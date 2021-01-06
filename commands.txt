@@ -1,0 +1,4 @@
+npm init
+npm install express
+node index.js
+npm install -g nodemon

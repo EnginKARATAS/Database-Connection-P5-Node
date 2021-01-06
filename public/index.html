@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>    
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(async position => {//in position, there is a timestamp
+
+               let latitude = position.coords.latitude; 
+               let longitude = position.coords.longitude; 
+               document.getElementById('latitude').textContent = latitude;
+               document.getElementById('longitude').textContent = longitude;
+                
+               const data = {latitude, longitude} // a simple object 
+               const options = {
+                   method: 'POST',
+                   headers:{ //post type I guss
+                       'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify(data) //.stringify: converst a javascript value to json object for sending json
+               }
+               const response = await fetch('/api', options)
+               const json = response.json();
+               console.log(data);
+               //fetch can use for get and post, we using there for POST!, options: info to post
+
+
+            });
+
+        }
+        else
+            console.log("geo yok");
+    </script>
+    <h1>this is a hello message from index.html</h1>
+    <a href="/index2.html">go to index2</a>
+    <p>enlem(latitude)= </p><span id="latitude"></span>
+    <p>boylam(longitude)= </p><span id="longitude"></span>
+    <br>
+    <button type="button">boş buton</button>
+</body>
+</html>

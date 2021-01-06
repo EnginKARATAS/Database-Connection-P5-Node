@@ -1,0 +1,18 @@
+{
+  "name": "module2",
+  "version": "1.0.0",
+  "description": "Data cekme islemlerini deniyorum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data"
+  ],
+  "author": "Engin Karatas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  }
+}
