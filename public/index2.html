@@ -18,33 +18,33 @@ function setup() {
             fill(255)
 
             
-        //     if ('geolocation' in navigator) {
-        //         navigator.geolocation.getCurrentPosition(async position => {//in position, there is a timestamp
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(async position => {//in position, there is a timestamp
 
-        //             let latitude = position.coords.latitude;
-        //             let longitude = position.coords.longitude;
-        //             document.getElementById('latitude').textContent = latitude;
-        //             document.getElementById('longitude').textContent = longitude;
+                    let latitude = position.coords.latitude;
+                    let longitude = position.coords.longitude;
+                    document.getElementById('latitude').textContent = latitude;
+                    document.getElementById('longitude').textContent = longitude;
 
-        //             const data = { latitude, longitude } // a simple object 
-        //             const options = {
-        //                 method: 'POST',
-        //                 headers: { //post type I guss
-        //                     'Content-Type': 'application/json'
-        //                 },
-        //                 body: JSON.stringify(data) //.stringify: converst a javascript value to json object for sending json
-        //             }
-        //             const response = await fetch('/api', options)
-        //             const json = response.json();
-        //             console.log(data);
-        //             text(data.latitude,33,55)
+                    const data = { latitude, longitude } // a simple object 
+                    const options = {
+                        method: 'POST',
+                        headers: { //post type I guss
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data) //.stringify: converst a javascript value to json object for sending json
+                    }
+                    const response = await fetch('/api', options)
+                    const json = response.json();
+                    console.log(data);
+                    text(data.latitude,33,55)
 
-        //             //fetch can use for get and post, we using there for POST!, options: info to post
+                    //fetch can use for get and post, we using there for POST!, options: info to post
 
 
-        //         });
+                });
 
-        //     }
+            }
       
 
 

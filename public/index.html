@@ -10,7 +10,7 @@
 <body>
     <h1>revision-test-add-question</h1>
     <br>
-    
+
     <form class="form" id="myForm">
         <h3>what is the question?</h3>
         <input type="text" name="question" id="question" placeholder="enter quest">
@@ -21,22 +21,27 @@
 
     <script>
 
-        const myForm = document.getElementById("myForm")
 
-        myForm.addEventListener("submit",function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            fetch("index2.html", {
-                method: "POST",
-                body: formData
-            }).then(function (response){
-                return response.text()
-            }).then(function(text){
-                console.log(text);
-            }).catch(function (error){
-                console.log(error);
-            });
-        })
+        let latitude = 5
+        let longitude = 10
+        // document.getElementById('latitude').textContent = latitude;
+        // document.getElementById('longitude').textContent = longitude;
+
+        const data = { latitude, longitude } // a simple object 
+        const options = {
+            method: 'POST',
+            headers: { //post type I guss
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) //.stringify: converst a javascript value to json object for sending json
+        }
+        const response = fetch('/api', options)
+        const json = response.json();
+        console.log(data);
+
+                    //fetch can use for get and post, we using there for POST!, options: info to post
+
+
 
     </script>
     <!-- <h1>this is a hello message from index.html</h1>
