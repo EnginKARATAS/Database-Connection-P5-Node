@@ -12,15 +12,14 @@ app.use(express.json({limit:"1mb"}));//server allows json and taken data size ma
 
  
 
-const Datastore = require('nedb');
-const database = new Datastore('database.db');
-database.loadDatabase();//if database not exist, create new one. else if some data is in, push to ram having datas;
- 
+var Datastore = require('nedb'), db = new Datastore({filename : 'database'});
+db.loadDatabase();
+
+
+
 app.post('/api', (request, response) => {
   console.log("request geldi");
-  console.log(request.body);
-  db.insert({tek:"hello"});
-
+  db.insert(request.body);
 });
 
 // db.find({year : 1922}, function (err,docs){ console.log(docs); });
