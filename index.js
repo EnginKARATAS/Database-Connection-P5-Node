@@ -1,4 +1,3 @@
-// Tabnine::config
 
 //server codes index.js
 const fs = require('fs') //filestream
